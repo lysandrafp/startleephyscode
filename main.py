@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+import Mock.GPIO as GPIO
 import time
 import random
 from datetime import datetime
@@ -12,7 +12,7 @@ GPIO.output(TTL_PIN, GPIO.LOW)
 
 # Initialize audio system
 pygame.mixer.init(frequency=44100, size=-16, channels=1, buffer=512)
-sound = pygame.mixer.Sound("/home/sulser/Music/white-noise-0.5s.wav")
+sound = pygame.mixer.Sound("/home/paul/Desktop/scientific_programming/Ouch-6.wav")
 
 # Log file
 with open("ttl_pulse_log.txt", "w") as log_file:
