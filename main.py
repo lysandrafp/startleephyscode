@@ -8,19 +8,19 @@ import pygame
 TTL_PIN = 23
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(TTL_PIN, GPIO.OUT)
-GPIO.output(TTL_PIN, GPIO.LOW)
+GPIO.output([TTL_PIN], GPIO.LOW)
 
 # Initialize audio system
 pygame.mixer.init(frequency=44100, size=-16, channels=1, buffer=512)
-sound = pygame.mixer.Sound("/home/paul/Desktop/scientific_programming/Ouch-6.wav")
+sound = pygame.mixer.Sound("/home/paul/Desktop/scientific_programming/white-noise-0.5s.wav")
 
 # Log file
 with open("ttl_pulse_log.txt", "w") as log_file:
     for i in range(30):
         # TTL pulse
-        GPIO.output(TTL_PIN, GPIO.HIGH)
+        GPIO.output([TTL_PIN], GPIO.HIGH)
         time.sleep(0.05)
-        GPIO.output(TTL_PIN, GPIO.LOW)
+        GPIO.output([TTL_PIN], GPIO.LOW)
 
         # Log timestamp
         now = datetime.now()
